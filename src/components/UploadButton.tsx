@@ -21,9 +21,7 @@ const UploadButton = () => {
                 <Button>Upload PDF</Button>
             </DialogTrigger>
 
-			<DialogContent>
-				YAY YOU OPENNED IT!
-			</DialogContent>
+            <DialogContent>YAY YOU OPENNED IT!</DialogContent>
         </Dialog>
     );
 };
