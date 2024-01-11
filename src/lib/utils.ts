@@ -9,7 +9,7 @@ export function cn(...inputs: ClassValue[]) {
 export function absoluteUrl(path: string) {
   if (typeof window !== 'undefined') return path;
   if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}${path}`;
+    return `https://${process.env.VERCEL_URL}${path}`; //https://quill-pi-five.vercel.app/dashboard/billing
   }
   return `http://localhost:${process.env.PORT ?? 3000}${path}`;
 }
@@ -48,7 +48,7 @@ export function constructMetadata({
     },
     icons,
     metadataBase: new URL('https://quill-pi-five.vercel.app'),
-    themeColor: "#FFF",
+    // themeColor: "#FFF",
     ...(noIndex && {
       robots: {
         index: false,

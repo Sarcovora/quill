@@ -15,7 +15,9 @@ export async function POST(request: Request) {
       signature,
       process.env.STRIPE_WEBHOOK_SECRET || '',
     );
+    console.log("In webhooks/stripe/route.ts & currently in try statement")
   } catch (err) {
+    console.log("In webhooks/stripe/route.ts & currently in catch: " + err)
     return new Response(
       `Webhook Error: ${err instanceof Error ? err.message : 'Unknown Error'}`,
       { status: 400 },
@@ -31,6 +33,7 @@ export async function POST(request: Request) {
   }
 
   if (event.type === 'checkout.session.completed') {
+    console.log("Checkout section completed!")
     const subscription = await stripe.subscriptions.retrieve(
       session.subscription as string,
     );
@@ -48,6 +51,8 @@ export async function POST(request: Request) {
         ),
       },
     });
+
+    console.log ("should have just updated the db")
   }
 
   if (event.type === 'invoice.payment_succeeded') {
