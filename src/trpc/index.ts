@@ -51,6 +51,8 @@ export const appRouter = router({
 
     const billingUrl = absoluteUrl('/dashboard/billing');
 
+    console.log("billing url:" + billingUrl)
+
     if (!userId) throw new TRPCError({ code: 'UNAUTHORIZED' });
 
     const dbUser = await db.user.findFirst({
@@ -69,6 +71,9 @@ export const appRouter = router({
         return_url: billingUrl,
       });
 
+      console.log("user has a stripe session already:")
+
+      console.log(stripeSession.url)
       return { url: stripeSession.url };
     }
 
