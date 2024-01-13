@@ -24,6 +24,10 @@
 
 ## Future Improvements
 
+- Allow multiple files to be uploaded at once in the upload dialog
+- Have an option to not redirect to the PDF page but instead just close the dialog once PDFs are uploaded.
+- When deleting PDFs from the user database, also delete them on UploadThing. (Could potentially make use of webhooks here)
+
 ## Features
 
 - 🛠️ Complete SaaS Built From Scratch
